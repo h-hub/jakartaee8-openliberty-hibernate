@@ -1,4 +1,4 @@
-# JakartaEE8 hibernate example
+# JakartaEE8 OpenLiberty hibernate example
 
 ## How to run this project: 
 This project user Liberty maven plugin. To run the project execute this command.
