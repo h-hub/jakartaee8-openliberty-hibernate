@@ -13,7 +13,7 @@ import java.util.List;
 @Transactional
 public class BlogPostService implements Serializable {
 
-    @PersistenceContext(name = "recruitDBPersistenceUnit")
+    @PersistenceContext(name = "blogpostunit")
     EntityManager em;
 
     public void addBlogPost(String title, String content){

@@ -5,11 +5,11 @@
 			 xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/persistence
                         http://xmlns.jcp.org/xml/ns/persistence/persistence_2_2.xsd">
 
-	<persistence-unit name="recruitDBPersistenceUnit"
+	<persistence-unit name="blogpostunit"
 					  transaction-type="JTA">
 
 		<provider>org.hibernate.jpa.HibernatePersistenceProvider</provider>
-		<jta-data-source>jdbc/recruittimesdb</jta-data-source>
+		<jta-data-source>jdbc/blogpostunit</jta-data-source>
 
 		<properties>
 			<property

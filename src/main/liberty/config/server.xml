@@ -54,10 +54,10 @@
 
     <variable name="WLP_DEBUG_REMOTE" value="y" />
 
-    <bell libraryRef="hibernate"/>
+
 	
     <dataSource id="hibernatemysqldb"
-                    jndiName="jdbc/recruittimesdb">
+                    jndiName="jdbc/blogpostunit">
         <jdbcDriver libraryRef="MySQLLib" />
         <properties databaseName="test_db"
                             serverName="localhost" password="admin1234" user="root"
@@ -68,6 +68,8 @@
         <file
             name="mysql-connector-java-8.0.19.jar" />
     </library>
+
+    <bell libraryRef="hibernate"/>
 
     <library id="hibernate">
         <fileset dir="${server.config.dir}/hibernate/" includes="*.jar"/>
