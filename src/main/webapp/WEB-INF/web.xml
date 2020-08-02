@@ -64,15 +64,4 @@
         <param-value>true</param-value>
     </context-param>
 
-    <persistence-context-ref>
-        <persistence-context-ref-name>blogpostunit/em</persistence-context-ref-name>
-        <persistence-unit-name>recruitDBPersistenceUnit</persistence-unit-name>
-    </persistence-context-ref>
-
-    <persistence-unit-ref>
-        <persistence-unit-ref-name>blogpostunit/emf</persistence-unit-ref-name>
-        <persistence-unit-name>recruitDBPersistenceUnit</persistence-unit-name>
-    </persistence-unit-ref>
-
-
 </web-app>
