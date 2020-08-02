@@ -1,0 +1,90 @@
+<server description="Liberty server">
+
+    <featureManager>
+        <feature>appClientSupport-1.0</feature>
+        <feature>appSecurity-2.0</feature>
+        <feature>appSecurity-3.0</feature>
+        <feature>batch-1.0</feature>
+        <feature>beanValidation-2.0</feature>
+        <feature>cdi-2.0</feature>
+        <feature>concurrent-1.0</feature>
+        <feature>distributedMap-1.0</feature>
+        <feature>ejb-3.2</feature>
+        <feature>ejbHome-3.2</feature>
+        <feature>ejbLite-3.2</feature>
+        <feature>ejbPersistentTimer-3.2</feature>
+        <feature>ejbRemote-3.2</feature>
+        <feature>el-3.0</feature>
+        <feature>j2eeManagement-1.1</feature>
+        <feature>jacc-1.5</feature>
+        <feature>jaspic-1.1</feature>
+        <feature>javaMail-1.6</feature>
+        <feature>jaxb-2.2</feature>
+        <feature>jaxrs-2.1</feature>
+        <feature>jaxrsClient-2.1</feature>
+        <feature>jaxws-2.2</feature>
+        <feature>jca-1.7</feature>
+        <feature>jcaInboundSecurity-1.0</feature>
+        <feature>jdbc-4.2</feature>
+        <feature>jms-2.0</feature>
+        <feature>jndi-1.0</feature>
+        <feature>jpaContainer-2.2</feature>
+        <feature>jsf-2.3</feature>
+        <feature>json-1.0</feature>
+        <feature>jsonb-1.0</feature>
+        <feature>jsonp-1.1</feature>
+        <feature>jsp-2.3</feature>
+        <feature>managedBeans-1.0</feature>
+        <feature>mdb-3.2</feature>
+        <feature>restConnector-2.0</feature>
+        <feature>servlet-4.0</feature>
+        <feature>ssl-1.0</feature>
+        <feature>wasJmsClient-2.0</feature>
+        <feature>wasJmsSecurity-1.0</feature>
+        <feature>wasJmsServer-1.0</feature>
+        <feature>websocket-1.1</feature>
+        <feature>bells-1.0</feature>
+    </featureManager>
+
+    <variable name="default.http.port" defaultValue="9081" />
+    <variable name="default.https.port" defaultValue="9445" />
+
+    <variable name="io_openliberty_guides_system_inMaintenance"
+                  value="false" />
+
+    <variable name="WLP_DEBUG_REMOTE" value="y" />
+
+    <bell libraryRef="hibernate"/>
+	
+    <dataSource id="hibernatemysqldb"
+                    jndiName="jdbc/recruittimesdb">
+        <jdbcDriver libraryRef="MySQLLib" />
+        <properties databaseName="test_db"
+                            serverName="localhost" password="admin1234" user="root"
+                            serverTimezone="UTC" portNumber="3306" />
+    </dataSource>
+
+    <library id="MySQLLib">
+        <file
+            name="mysql-connector-java-8.0.19.jar" />
+    </library>
+
+    <library id="hibernate">
+        <fileset dir="${server.config.dir}/hibernate/" includes="*.jar"/>
+    </library>
+
+    <application location="jakartaee8-hibernate-example.war"
+                 contextRoot="/" >
+        <classloader commonLibraryRef="hibernate"/>
+    </application>
+
+    <mpMetrics authentication="false" />
+
+    <quickStartSecurity userName="admin"
+                        userPassword="admin" />
+
+
+    <httpEndpoint host="*" httpPort="${default.http.port}"
+                  httpsPort="${default.https.port}" id="defaultHttpEndpoint" />
+
+</server>
